@@ -1,4 +1,5 @@
 import os
+import random
 from flask import Flask
 
 from flask import request
@@ -7,18 +8,26 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    #created a class
+    left_class = "left"
+    right_class = "right"
 
-    input_value = request.args.get('search-term')
-    print(input_value)
+ #created a true statement
+    if random.randint(0,1):
+        left_class = "right"
+        right_class = "left"
 
-    if not input_value:
-        input_value = ""
+    index_file = open('1.3-demo.html', 'r')
 
-    index_file = open('index.html', 'r')
+
 
     my_html = index_file.read()
-    print(input_value)
-    my_html = my_html.replace("{{input_value}}", input_value)
+
+
+#'left_class is pulling from the previous var that I created on line 11 & 'right class from line 12
+    my_html = my_html.replace("{{left}}", left_class)
+    my_html = my_html.replace("{{right}}", right_class)
+
 
     index_file.close()
 
