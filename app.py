@@ -12,7 +12,7 @@ def index():
     left_class = "left"
     right_class = "right"
 
- #created a true statement
+ #created a random.randit statement with import random, to switch between 0,1
     if random.randint(0,1):
         left_class = "right"
         right_class = "left"
